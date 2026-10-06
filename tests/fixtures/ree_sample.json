@@ -1,0 +1,83 @@
+{
+ "data": {
+  "type": "Precios mercado peninsular en tiempo real",
+  "id": "mer13",
+  "attributes": {
+   "title": "Precios mercado peninsular en tiempo real"
+  }
+ },
+ "included": [
+  {
+   "type": "PVPC",
+   "id": "1001",
+   "groupId": null,
+   "attributes": {
+    "title": "PVPC",
+    "magnitude": "price",
+    "values": [
+     {
+      "value": 198.34,
+      "percentage": 0.488,
+      "datetime": "2026-10-04T00:00:00.000+02:00"
+     },
+     {
+      "value": 190.28,
+      "percentage": 0.489,
+      "datetime": "2026-10-04T01:00:00.000+02:00"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Precio mercado spot",
+   "id": "600",
+   "groupId": null,
+   "attributes": {
+    "title": "Precio mercado spot",
+    "magnitude": "price",
+    "values": [
+     {
+      "value": 208.08,
+      "percentage": 1,
+      "datetime": "2026-10-04T00:00:00.000+02:00"
+     },
+     {
+      "value": 206.63,
+      "percentage": 1,
+      "datetime": "2026-10-04T00:15:00.000+02:00"
+     },
+     {
+      "value": 205.4,
+      "percentage": 1,
+      "datetime": "2026-10-04T00:30:00.000+02:00"
+     },
+     {
+      "value": 204.0,
+      "percentage": 1,
+      "datetime": "2026-10-04T00:45:00.000+02:00"
+     },
+     {
+      "value": 200.0,
+      "percentage": 1,
+      "datetime": "2026-10-04T01:00:00.000+02:00"
+     },
+     {
+      "value": 199.0,
+      "percentage": 1,
+      "datetime": "2026-10-04T01:15:00.000+02:00"
+     },
+     {
+      "value": 198.0,
+      "percentage": 1,
+      "datetime": "2026-10-04T01:30:00.000+02:00"
+     },
+     {
+      "value": 197.0,
+      "percentage": 1,
+      "datetime": "2026-10-04T01:45:00.000+02:00"
+     }
+    ]
+   }
+  }
+ ]
+}

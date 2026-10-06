@@ -1,0 +1,50 @@
+name: Actualizar precios
+
+on:
+  schedule:
+    # Todos los días a las 19:00 y 21:00 UTC (≈ 21:00 / 23:00 en España),
+    # después de que REE publique el PVPC del día siguiente (~20:15).
+    - cron: "0 19 * * *"
+    - cron: "0 21 * * *"
+  workflow_dispatch:
+    inputs:
+      backfill_days:
+        description: "Días de histórico a descargar (vacío = actualización incremental)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements-dev.txt
+
+      - name: Tests
+        run: python -m pytest -q
+
+      - name: Descargar precios
+        run: |
+          if [ -n "${{ github.event.inputs.backfill_days }}" ]; then
+            python -m src.etl --backfill "${{ github.event.inputs.backfill_days }}"
+          else
+            python -m src.etl
+          fi
+
+      - name: Guardar la base de datos en el repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/prices.db
+          git diff --cached --quiet || git commit -m "data: actualizar precios $(date -u +%Y-%m-%d)"
+          git push
