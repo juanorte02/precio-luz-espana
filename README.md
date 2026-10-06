@@ -4,7 +4,9 @@ Interactive dashboard that tracks the hourly price of electricity in Spain — b
 
 An automated ETL pipeline downloads the prices every day, stores them in a SQL database and the Streamlit app turns them into actionable insights: *when is the cheapest time to run the washing machine today?*
 
-<!-- TODO: add a screenshot of the deployed app: docs/screenshot.png -->
+**🔗 Live demo: [precio-luz-espana.streamlit.app](https://precio-luz-espana.streamlit.app)**
+
+![Dashboard screenshot](docs/screenshot.webp)
 
 ## Features
 
